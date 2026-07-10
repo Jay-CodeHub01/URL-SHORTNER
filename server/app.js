@@ -3,6 +3,7 @@ import express from 'express';
 import connectDB from './src/config/mongo.config.js';
 
 import shortUrl from './src/routes/shorturl.route.js';
+import authRoute from './src/routes/auth.route.js';
 import { redirectToFullUrl } from './src/controller/shorturl.controller.js';
 import {errorHandler} from './src/utils/errorHandler.js';
 import cors from 'cors';
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/create', shortUrl);
 app.get('/:id', redirectToFullUrl);
+app.use('/api/auth', authRoute);
 
 app.use(errorHandler);
 
