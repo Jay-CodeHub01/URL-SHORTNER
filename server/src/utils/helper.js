@@ -10,5 +10,6 @@ export const signToken = (payload) => {
 }
 
 export const verifyToken = (token) => {
-    return jsonwebtoken.verify(token, process.env.JWT_SECRET);
+    const decoded = jsonwebtoken.verify(token, process.env.JWT_SECRET);
+    return decoded.id;
 }
