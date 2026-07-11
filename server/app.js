@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import connectDB from './src/config/mongo.config.js';
+import cookieParser from 'cookie-parser';
+import {attechUser} from './src/utils/attechUser.js';
 
 import shortUrl from './src/routes/shorturl.route.js';
 import authRoute from './src/routes/auth.route.js';
@@ -15,6 +17,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(attechUser);
 
 app.use('/api/create', shortUrl);
 app.get('/:id', redirectToFullUrl);
