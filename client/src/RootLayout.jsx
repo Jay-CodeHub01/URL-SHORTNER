@@ -1,11 +1,13 @@
 import React from 'react'
 import { Outlet } from '@tanstack/react-router'
+import Navbar from './components/Navbar.jsx'
 
 const RootLayout = () => {
   return (
-    <div className="min-h-screen">
-      <Outlet />
-    </div>
+    <>
+    <Navbar />
+    <Outlet/>
+    </>
   )
 }
 
