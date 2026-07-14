@@ -1,11 +1,11 @@
 import { createRoute } from "@tanstack/react-router"
-import { rootRoute } from "./routeTree"
-import DashboardPage from "../pages/DashboardPage"
-import { checkAuth } from "../utils/helper"
+import { rootRoute } from "./routeTree.js"
+import DashboardPage from "../pages/DashboardPage.jsx"
+import { checkAuth } from "../utils/helper.js"
 
-export const dasboardRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/dashboard',
-    component: DashboardPage,
-    beforeLoad: checkAuth
+export const dashboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/dashboard',
+  component: DashboardPage,
+  beforeLoad: checkAuth,
 })

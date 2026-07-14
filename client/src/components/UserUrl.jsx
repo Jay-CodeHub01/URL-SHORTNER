@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getAllUserUrls } from '../api/user.api'
+import { getAllUserUrls } from '../api/user.api.js'
 
 const UserUrl = () => {
   const { data: urls, isLoading, isError, error } = useQuery({

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { loginUser } from '../api/user.api';
-import {useDispatch, useSelector} from 'react-redux';
+import { loginUser } from '../api/user.api.js';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/slice/authSlice.js';
 import { useNavigate } from '@tanstack/react-router';
 

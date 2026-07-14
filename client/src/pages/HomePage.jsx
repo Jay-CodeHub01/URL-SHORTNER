@@ -1,6 +1,6 @@
 
 import React from 'react'
-import UrlForm from '../components/UrlForm'
+import UrlForm from '../components/UrlForm.jsx'
 
 const HomePage = () => {
   return (

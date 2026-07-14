@@ -1,6 +1,6 @@
 import { redirect } from "@tanstack/react-router";
-import { getCurrentUser } from "../api/user.api";
-import { login } from "../store/slice/authSlice";
+import { getCurrentUser } from "../api/user.api.js";
+import { login } from "../store/slice/authSlice.js";
 
 export const checkAuth = async ({ context }) => {
     try {
