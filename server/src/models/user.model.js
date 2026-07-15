@@ -16,11 +16,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
-  avatar: {
-    type: String,
-    required: false,
-    default: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp",
-  },
 });
 
 userSchema.methods.comparePassword = async function (password) {
