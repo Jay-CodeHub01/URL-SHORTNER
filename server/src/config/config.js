@@ -1,6 +1,6 @@
-export const cookieOptions = {
+export const getCookieOptions = () => ({
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax",
-    maxAge: 1000 * 60 * 60, // 5 minutes
-}
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    maxAge: 1000 * 60 * 60,
+})

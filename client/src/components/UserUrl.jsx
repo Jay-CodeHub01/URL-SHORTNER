@@ -5,6 +5,7 @@ import { getAllUserUrls } from '../api/user.api.js'
 const ROWS_PER_PAGE = 5
 
 const UserUrl = () => {
+  const publicBaseUrl = import.meta.env.VITE_APP_URL || import.meta.env.VITE_API_URL || window.location.origin
   const { data: urls, isLoading, isError, error } = useQuery({
     queryKey: ['userUrls'],
     queryFn: getAllUserUrls,
@@ -106,7 +107,7 @@ const UserUrl = () => {
           <div className="h-5 w-28 rounded bg-gray-200 mb-6" />
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex gap-4 mb-4">
-              <div className="h-4 flex-[2] rounded bg-gray-100" />
+              <div className="h-4 flex-2 rounded bg-gray-100" />
               <div className="h-4 flex-1 rounded bg-gray-100" />
               <div className="h-4 w-14 rounded bg-gray-100" />
               <div className="h-4 w-24 rounded bg-gray-100" />
@@ -121,7 +122,7 @@ const UserUrl = () => {
   if (isError) {
     return (
       <div className="rounded-2xl border border-red-200 bg-red-50 px-6 py-5 flex items-start gap-3">
-        <svg className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className="h-5 w-5 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
         <div>
@@ -266,14 +267,14 @@ const UserUrl = () => {
                     <tr key={url._id} className="group hover:bg-violet-50/40 transition-colors duration-150">
                       {/* original url */}
                       <td className="px-6 py-4">
-                        <p className="text-sm text-gray-700 truncate max-w-[220px]" title={url.full_url}>
+                        <p className="text-sm text-gray-700 truncate max-w-55" title={url.full_url}>
                           {url.full_url}
                         </p>
                       </td>
                       {/* short url */}
                       <td className="px-6 py-4">
                         <a
-                          href={`http://localhost:3000/${url.short_url}`}
+                          href={`${publicBaseUrl.replace(/\/$/, '')}/${url.short_url}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm font-medium text-violet-600 hover:text-violet-700 hover:underline transition-colors"
@@ -295,7 +296,7 @@ const UserUrl = () => {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-1.5">
                           <button
-                            onClick={() => handleCopy(`http://localhost:3000/${url.short_url}`, url._id)}
+                            onClick={() => handleCopy(`${publicBaseUrl.replace(/\/$/, '')}/${url.short_url}`, url._id)}
                             className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
                               copiedId === url._id
                                 ? 'bg-emerald-100 text-emerald-700'
@@ -319,7 +320,7 @@ const UserUrl = () => {
                             )}
                           </button>
                           <a
-                            href={`http://localhost:3000/${url.short_url}`}
+                            href={`${publicBaseUrl.replace(/\/$/, '')}/${url.short_url}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center p-1.5 rounded-lg bg-gray-100 text-gray-500 hover:bg-violet-100 hover:text-violet-700 transition-all duration-200"

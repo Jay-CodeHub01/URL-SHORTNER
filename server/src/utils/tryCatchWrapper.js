@@ -3,9 +3,9 @@ export default function wrapAsync(fn) {
     try {
       await fn(req, res, next);
     } catch (err) {
-      console.error("===== ERROR =====");
-      console.error(err.stack);
-      console.error("=================");
+      if (process.env.NODE_ENV !== "production") {
+        console.error(err.stack);
+      }
       next(err);
     }
   };

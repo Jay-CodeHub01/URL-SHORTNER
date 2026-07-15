@@ -1,5 +1,5 @@
+import "dotenv/config"
 import express from "express";
-import dotenv from "dotenv"
 import connectDB from "./src/config/mongo.config.js"
 import shortUrlRoutes from "./src/routes/shorturl.route.js"
 import userRoutes from "./src/routes/user.route.js"
@@ -10,13 +10,16 @@ import cors from "cors"
 import { attachUser } from "./src/utils/attechUser.js";
 import cookieParser from "cookie-parser"
 
-dotenv.config("./.env")
-
 const app = express();
 
+const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+
 app.use(cors({
-    origin: 'http://localhost:5173', // your React app
-    credentials: true // 👈 this allows cookies to be sent
+    origin: clientOrigins,
+    credentials: true
 }));
 
 app.use(express.json())
@@ -32,9 +35,21 @@ app.get("/:id",redirectFromShortUrl)
 
 app.use(errorHandler)
 
-app.listen(3000,()=>{
-    connectDB()
-    console.log("Server is running on http://localhost:3000");
-})
+const startServer = async () => {
+    await connectDB()
+    const port = process.env.PORT || 3000
+    app.listen(port,()=>{
+        console.log(`Server is running on port ${port}`);
+    })
+}
+
+if (process.env.VERCEL !== "1") {
+    startServer().catch((error) => {
+        console.error("Failed to start server:", error)
+        process.exit(1)
+    })
+}
 
 // GET - Redirection 
+
+export default app
