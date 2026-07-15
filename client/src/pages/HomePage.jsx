@@ -1,9 +1,11 @@
 import React from 'react'
 import UrlForm from '../components/UrlForm.jsx'
+import Navbar from '../components/Navbar.jsx'
 
 const HomePage = () => {
   return (
     <div className="min-h-screen w-full bg-white relative overflow-hidden">
+      <Navbar />
       {/* ── ambient gradient blobs ── */}
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[520px] w-[720px] rounded-full bg-gradient-to-b from-violet-200/60 via-purple-100/40 to-transparent blur-[100px]" />
       <div className="pointer-events-none absolute top-20 -left-40 h-[300px] w-[300px] rounded-full bg-blue-100/40 blur-[90px]" />

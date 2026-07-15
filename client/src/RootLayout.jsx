@@ -5,7 +5,7 @@ import Navbar from './components/Navbar.jsx'
 const RootLayout = () => {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <Outlet/>
     </>
   )
