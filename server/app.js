@@ -12,13 +12,13 @@ import cookieParser from "cookie-parser"
 
 const app = express();
 
-const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean)
+// const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
+//     .split(",")
+//     .map((origin) => origin.trim())
+//     .filter(Boolean)
 
 app.use(cors({
-    origin: clientOrigins,
+    origin: "https://shortyfy.vercel.app",
     credentials: true
 }));
 
