@@ -17,6 +17,7 @@ const app = express();
 //     .map((origin) => origin.trim())
 //     .filter(Boolean)
 
+
 app.use(cors({
     origin: "https://shortyfy.vercel.app",
     credentials: true
