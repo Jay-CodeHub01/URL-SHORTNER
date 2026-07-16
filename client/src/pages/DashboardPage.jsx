@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UserUrl from "../components/UserUrl.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/slice/authSlice.js";
+import { logoutUser } from "../api/user.api.js";
 import { useNavigate } from "@tanstack/react-router";
 import { Link } from '@tanstack/react-router';
 
@@ -11,9 +12,15 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate({ to: "/" });
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    } finally {
+      dispatch(logout());
+      navigate({ to: "/" });
+    }
   };
 
   const firstName = user?.name?.trim() ? user.name.trim().split(/\s+/)[0] : "";
