@@ -147,13 +147,13 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  to="/login"
+                  to="/auth"
                   className="block text-center w-full rounded-xl border border-gray-200 text-sm font-medium text-gray-700 py-2.5 hover:bg-gray-50 transition-all duration-200"
                 >
                   Login
                 </Link>
                 <Link
-                  to="/register"
+                  to="/auth"
                   className="block text-center w-full rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm font-semibold py-2.5 shadow-lg shadow-violet-500/25"
                 >
                   Get Started
