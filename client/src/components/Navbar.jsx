@@ -46,7 +46,7 @@ const Navbar = () => {
             </svg>
           </div>
           <span className="text-lg font-bold tracking-tight text-gray-900">
-            Shortify
+            Shortyfy
           </span>
         </Link>
 

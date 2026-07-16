@@ -66,7 +66,7 @@ const RegisterForm = ({ state }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                 </svg>
               </div>
-              <span className="text-white font-bold text-base">Shortify</span>
+              <span className="text-white font-bold text-base">Shortyfy</span>
             </div>
 
             {/* hero text */}
@@ -75,7 +75,7 @@ const RegisterForm = ({ state }) => {
                 Create Your Account
               </h2>
               <p className="text-violet-200 text-sm leading-relaxed max-w-[220px]">
-                Join Shortify and start shortening URLs in seconds.
+                Join Shortyfy and start shortening URLs in seconds.
               </p>
             </div>
 
@@ -106,7 +106,7 @@ const RegisterForm = ({ state }) => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
                     </svg>
                   </div>
-                  <span className="text-white text-[10px] font-medium">shortify.io/r3...</span>
+                  <span className="text-white text-[10px] font-medium">Shortyfy.io/r3...</span>
                 </div>
               </div>
             </div>

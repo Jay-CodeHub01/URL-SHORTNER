@@ -60,7 +60,7 @@ const LoginForm = ({ state }) => {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                                 </svg>
                             </div>
-                            <span className="text-white font-bold text-base">Shortify</span>
+                            <span className="text-white font-bold text-base">Shortyfy</span>
                         </div>
 
                         {/* hero text */}
@@ -121,7 +121,7 @@ const LoginForm = ({ state }) => {
 
                         {/* heading */}
                         <div className="text-center mb-7">
-                            <h1 className="text-2xl font-bold text-gray-900">Login to Shortify</h1>
+                            <h1 className="text-2xl font-bold text-gray-900">Login to Shortyfy</h1>
                             <p className="mt-1.5 text-sm text-gray-500">
                                 Don't have an account?{' '}
                                 <span onClick={() => state(false)} className="text-violet-600 hover:text-violet-700 font-medium cursor-pointer transition-colors">
