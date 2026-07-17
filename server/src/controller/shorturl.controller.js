@@ -1,4 +1,4 @@
-import { getShortUrl } from "../dao/shorturl.js"
+import { deleteShortUrlById, getShortUrl } from "../dao/shorturl.js"
 import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/shorturl.service.js"
 import { buildPublicUrl } from "../utils/helper.js"
 import { NotFoundError } from "../utils/errorHandler.js"
@@ -26,4 +26,13 @@ export const createCustomShortUrl = wrapAsync(async (req, res) => {
   const { url, slug } = req.body
   const shortUrl = await createShortUrlWithoutUser(url, slug)
   res.status(200).json({ shortUrl: buildPublicUrl(shortUrl) })
+})
+
+export const deleteShortUrl = wrapAsync(async (req, res) => {
+  const { id } = req.params
+  const deletedUrl = await deleteShortUrlById(id, req.user._id)
+
+  if (!deletedUrl) throw new NotFoundError("URL not found")
+
+  res.status(200).json({ message: "URL deleted successfully" })
 })

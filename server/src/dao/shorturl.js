@@ -1,5 +1,6 @@
 import urlSchema from "../models/shorturl.model.js";
 import { ConflictError } from "../utils/errorHandler.js";
+import mongoose from "mongoose";
 
 export const saveShortUrl = async (shortUrl, longUrl, userId) => {
     try{
@@ -25,4 +26,12 @@ export const getShortUrl = async (shortUrl) => {
 
 export const getCustomShortUrl = async (slug) => {
     return await urlSchema.findOne({short_url:slug});
+}
+
+export const deleteShortUrlById = async (id, userId) => {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return null
+    }
+
+    return await urlSchema.findOneAndDelete({ _id: id, user: userId })
 }
